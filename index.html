@@ -287,6 +287,9 @@ function buscar() {
 }
 
 function contactar(vivienda) {
+    const mensaje = "Hola, estoy interesado en la vivienda: " + vivienda;
+    window.location.href = "https://wa.me/34678363870text=" + encodeURIComponent(mensaje);
+}
   alert(
     "Has seleccionado: " +
     vivienda +
