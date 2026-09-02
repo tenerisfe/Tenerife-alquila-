@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tenerife Alquila</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #222;
+}
+
+header {
+  background: #0b5cff;
+  color: white;
+  padding: 22px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 30px;
+}
+
+header p {
+  margin-top: 7px;
+}
+
+.hero {
+  padding: 35px 20px;
+  text-align: center;
+  background: white;
+}
+
+.hero h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.search {
+  max-width: 800px;
+  margin: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.search input,
+.search select,
+.search button {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.search button {
+  background: #0b5cff;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 25px 18px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 18px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.price {
+  color: #0b5cff;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #0b5cff;
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.owner {
+  margin-top: 35px;
+  background: #111827;
+  color: white;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.owner h2 {
+  margin-bottom: 10px;
+}
+
+.owner button {
+  margin-top: 20px;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #0b5cff;
+  color: white;
+  font-weight: bold;
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  background: white;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🏠 Tenerife Alquila</h1>
+  <p>Encuentra tu próximo hogar en Tenerife</p>
+</header>
+
+<section class="hero">
+  <h2>Encuentra una vivienda</h2>
+  <p>Busca casas, apartamentos y habitaciones en Tenerife.</p>
+
+  <div class="search">
+    <input id="zona" type="text" placeholder="Zona: Santa Cruz, Adeje...">
+
+    <select id="tipo">
+      <option value="">Tipo de vivienda</option>
+      <option>Casa</option>
+      <option>Apartamento</option>
+      <option>Habitación</option>
+      <option>Villa</option>
+    </select>
+
+    <input id="precio" type="number" placeholder="Precio máximo €/mes">
+
+    <button onclick="buscar()">🔎 Buscar vivienda</button>
+  </div>
+</section>
+
+<section class="container">
+
+  <h2 class="title">Viviendas disponibles</h2>
+
+  <div class="properties" id="lista">
+
+    <div class="card" data-zona="adeje" data-tipo="apartamento" data-precio="950">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-content">
+        <h3>Apartamento en Adeje</h3>
+        <p>2 habitaciones · 1 baño · Terraza</p>
+        <div class="price">950 €/mes</div>
+        <button onclick="contactar('Apartamento en Adeje')">
+          Contactar
+        </button>
+      </div>
+    </div>
+
+    <div class="card" data-zona="santa cruz" data-tipo="casa" data-precio="1200">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-content">
+        <h3>Casa en Santa Cruz</h3>
+        <p>3 habitaciones · 2 baños · Garaje</p>
+        <div class="price">1.200 €/mes</div>
+        <button onclick="contactar('Casa en Santa Cruz')">
+          Contactar
+        </button>
+      </div>
+    </div>
+
+    <div class="card" data-zona="los cristianos" data-tipo="habitacion" data-precio="550">
+      <img src="https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-content">
+        <h3>Habitación en Los Cristianos</h3>
+        <p>Habitación privada · WiFi · Gastos incluidos</p>
+        <div class="price">550 €/mes</div>
+        <button onclick="contactar('Habitación en Los Cristianos')">
+          Contactar
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="owner">
+
+  <h2>¿Tienes una vivienda para alquilar?</h2>
+
+  <p>Publica tu vivienda y encuentra inquilinos.</p>
+
+  <button onclick="publicar()">
+    ➕ Publicar vivienda
+  </button>
+
+</section>
+
+<footer>
+  <p>© 2026 Tenerife Alquila</p>
+  <p>Alquiler de viviendas en Tenerife</p>
+</footer>
+
+<script>
+
+function buscar() {
+
+  let zona = document.getElementById("zona").value.toLowerCase();
+  let tipo = document.getElementById("tipo").value.toLowerCase();
+  let precio = document.getElementById("precio").value;
+
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+
+    let cardZona = card.dataset.zona;
+    let cardTipo = card.dataset.tipo;
+    let cardPrecio = Number(card.dataset.precio);
+
+    let correctoZona =
+      zona === "" || cardZona.includes(zona);
+
+    let correctoTipo =
+      tipo === "" || cardTipo === tipo;
+
+    let correctoPrecio =
+      precio === "" || cardPrecio <= Number(precio);
+
+    if (correctoZona && correctoTipo && correctoPrecio) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+
+  });
+}
+
+function contactar(vivienda) {
+  alert(
+    "Has seleccionado: " +
+    vivienda +
+    "\\n\\nPróximamente podrás contactar directamente con el propietario."
+  );
+}
+
+function publicar() {
+  alert(
+    "Formulario para propietarios\\n\\n" +
+    "Aquí añadiremos próximamente el sistema para publicar viviendas."
+  );
+}
+
+</script>
+
+</body>
+</html>
