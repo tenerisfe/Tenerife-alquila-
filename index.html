@@ -286,7 +286,11 @@ function buscar() {
   });
 }
 
-
+function contactar(vivienda) {
+    const mensaje = "Hola, estoy interesado en la vivienda: " + vivienda;
+    const url = "https://wa.me/34678363870?text=" + encodeURIComponent(mensaje);
+    window.open(url, "_blank");
+}
 
 
 
